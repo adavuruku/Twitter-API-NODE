@@ -7,7 +7,7 @@ const tweet = mongoose.Schema({
     likes:{type : Array, 'default':[]},
     retweets:[
         {
-            user: {type: mongoose.Schema.Types.ObjectId, ref: 'UsersRecord'}
+            type: mongoose.Schema.Types.ObjectId, ref: 'UsersRecord'
         }
     ],
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'UsersRecord' },

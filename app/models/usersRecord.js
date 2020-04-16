@@ -24,7 +24,11 @@ const usersRecord = mongoose.Schema({
     admin:{type:Boolean, default:false},
     active:{type:Boolean, default:true},
     dob:{type:Date},
-    followers:[mongoose.Schema.Types.ObjectId],
+    followers:[
+        {
+            type: mongoose.Schema.Types.ObjectId, ref: 'UsersRecord'
+        }
+    ],
     profileImage:{type : String},
     coverImage:{type : String}
 },{timestamps: true});
