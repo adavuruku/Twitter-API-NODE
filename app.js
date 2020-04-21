@@ -14,7 +14,11 @@ const con = require('./connection');
 
 
 const usersRoutes = require('./app/routes/usersRoute');
+const tweetRoutes = require('./app/routes/tweetRoute');
+const retweetRoute = require('./app/routes/retweetRoute');
 app.use('/user',usersRoutes);
+app.use('/tweet',tweetRoutes);
+app.use('/retweet',retweetRoute);
 
 app.use((req,res,next)=>{
     const error = new Error('Not found');

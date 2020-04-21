@@ -21,27 +21,31 @@ const usersRecord = mongoose.Schema({
     userBio:{type :String},
     userLocation:{type :String},
     userWebsite:{type :String},
-    admin:{type:Boolean, default:false},
-    active:{type:Boolean, default:true},
     dob:{type:Date},
+    profileImage:{type : String},
+    coverImage:{type : String},
     followers:[
         {
             type: mongoose.Schema.Types.ObjectId, ref: 'UsersRecord'
         }
     ],
-    profileImage:{type : String},
-    coverImage:{type : String}
+
+    admin:{type:Boolean, default:false},
+    active:{type:Boolean, default:true}
+    
 },{timestamps: true});
 
+//this will help get users tweet
 usersRecord.virtual('tweets', {
     ref: 'Tweet',
     localField: 'user',
     foreignField: '_id'
 });
 
+//this will help get all users retweet
 usersRecord.virtual('retweets', {
-    ref: 'Tweet',
-    localField: 'retweeet',
+    ref: 'ReTweet',
+    localField: 'user',
     foreignField: '_id'
 });
 

@@ -22,7 +22,6 @@ var storage = multer.diskStorage({
     callback(null, './fileServer');
   },
   filename: function (req, file, callback) {
-    //   console.log(req)
     callback(null, Date.now() + '-' + file.originalname.toLowerCase().split(' ').join('-'));
   }
 });
